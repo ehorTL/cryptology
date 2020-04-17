@@ -1,0 +1,1 @@
+description https://www.sites.google.com/site/anisimovkhv/learning/kripto/lecture/tema8#p85
