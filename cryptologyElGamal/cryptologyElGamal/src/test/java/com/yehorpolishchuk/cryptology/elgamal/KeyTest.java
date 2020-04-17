@@ -24,6 +24,33 @@ public class KeyTest {
     }
 
     @Test
+    public void xLessThanP() throws Exception {
+        Key key1 = Key.generateKey(4);
+        Key key2 = Key.generateKey(10);
+        Key key3 = Key.generateKey(16);
+        Key key4 = Key.generateKey(20);
+
+        assertEquals(-1, key1.getPrivateKey().getKey().compareTo(key1.getPublicKey().getKeyP()));
+        assertEquals(-1, key2.getPrivateKey().getKey().compareTo(key2.getPublicKey().getKeyP()));
+        assertEquals(-1, key3.getPrivateKey().getKey().compareTo(key3.getPublicKey().getKeyP()));
+        assertEquals(-1, key4.getPrivateKey().getKey().compareTo(key4.getPublicKey().getKeyP()));
+    }
+
+    @Test
+    public void gLessThanP() throws Exception {
+        Key key1 = Key.generateKey(4);
+        Key key2 = Key.generateKey(10);
+        Key key3 = Key.generateKey(16);
+        Key key4 = Key.generateKey(20);
+
+        assertEquals(-1, key1.getPublicKey().getKeyG().compareTo(key1.getPublicKey().getKeyP()));
+        assertEquals(-1, key2.getPublicKey().getKeyG().compareTo(key2.getPublicKey().getKeyP()));
+        assertEquals(-1, key3.getPublicKey().getKeyG().compareTo(key3.getPublicKey().getKeyP()));
+        assertEquals(-1, key4.getPublicKey().getKeyG().compareTo(key4.getPublicKey().getKeyP()));
+
+    }
+
+    @Test
     public void gPrimitiveRootModuloP() throws Exception {
         Key[] keys = new Key[]{
             Key.generateKey(4),
